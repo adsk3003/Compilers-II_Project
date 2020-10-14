@@ -163,6 +163,8 @@ ELSE			:'else';
 BOOL			:'bool';
 FOR				:'for';
 IF				:'if';
+ELIF			:'elif';
+ENDIF			:'endif';
 REAL			:'real';
 INT				:'int';
 LONG			:'long';
