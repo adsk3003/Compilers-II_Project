@@ -1,57 +1,4 @@
-lexer grammar MerzureLexer;
-
-tokens{
-	ERROR,
-	TYPEID,
-	OBJECTID,
-	BOOL_CONST,
-	INT_CONST,
-	CHAR_CONST,
-	REAL_CONST,
-	COMPLEX_CONST,
-	STR_CONST,
-	LPAREN,
-	RPAREN,
-	COLON,
-	ATSYM,
-	SEMICOLON,
-	COMMA,
-	PLUS,
-	MINUS,
-	STAR,
-	SLASH,
-	TILDE,
-	LT,
-	GT,
-	EQUALS,
-	LBRACE,
-	RBRACE,
-	DOT,
-	LEQ,
-	GEQ,
-	NEQ,
-	ASSIGN,
-	ELSE,
-	IF,
-	WHILE,
-	CHAR,
-	CONST,
-	AUTO,
-	UNSIGNED,
-	BREAK,
-	CONTINUE,
-	COMPLEX,
-	BOOL,
-	FOR,
-	REAL,
-	INT,
-	LONG,
-	RETURN,
-	END,
-	VOID,
-	INCLUDE,
-	FUNCTION
-}
+grammar MerzureLexer;
 
 @members{
 
@@ -151,6 +98,64 @@ tokens{
 	}
 }
 
+
+// Parser Rules
+
+// Done by Adil Tanveer	 and Akashdeep Singh
+statement 					: expression_statement |
+							  selection_statement |
+							  loop_statement |
+							  jump_statement
+							  ;
+
+compound_statement			: (statement)+;
+
+expression_statement		: expression;
+selection_statement		    : IF LPAREN expression RPAREN 
+        					  compound_statement
+        					  (ELIF LPAREN expression RPAREN
+        					  compound_statement)*?
+        					  (ELSE compound_statement)?
+        					  END IF
+    						  ;
+
+loop_statement				: FOR LPAREN (expression)? SEMICOLON (expression)? SEMICOLON (expression)? RPAREN
+							  compound_statement
+							  END FOR
+							  ;
+							  	
+jump_statement				: CONTINUE | BREAK | RETURN ;
+
+
+
+// Done by Souradeep Chatterjee
+equation					: expression relop expression;
+
+expression					: expression POW expression |
+							  expression SLASH expression |
+							  expression STAR expression |
+							  expression PLUS expression |
+							  expression MINUS expression |
+							  LPAREN expression RPAREN |
+							  (PLUS | MINUS)? constant |
+							  (PLUS | MINUS)? var
+							  ;
+
+relop						: LT | EQUALS | GT | LEQ | GEQ | NEQ | ASSIGN;
+
+constant					: BOOL_CONST | 
+							  REAL_CONST | 
+							  INT_CONST | 
+							  CHAR_CONST | 
+							  COMPLEX_CONST |
+							  STR_CONST
+							  ;
+							  
+var 						: OBJECTID;	
+
+
+
+// Done By Adil Tanveer and Souradeep Chatterjee
 // rules for keywords
 CHAR			:'char';
 CONST			:'const';
@@ -163,21 +168,18 @@ ELSE			:'else';
 BOOL			:'bool';
 FOR				:'for';
 IF				:'if';
-ELIF			:'elif';
-ENDIF			:'endif';
+ELIF			: 'elif';
 REAL			:'real';
 INT				:'int';
 LONG			:'long';
-FALSE			:'false';
-WHILE			:'while';
 RETURN			:'return';
+FALSE			:'false';
 INCLUDE			:'include';
 END				:'end';
 VOID			:'void';
 FUNCTION		:'function';
+STATIC			: 'static';
 TRUE			:'true';
-
-
 
 //rules for identifiers and different constants.
 CHAR_CONST		:['] (LETTER | ESCAPE_CHAR) ['];
@@ -185,6 +187,7 @@ INT_CONST		:[0][xX](HEX)+ | [0](DIGIT)+ | (DIGIT)+;
 REAL_CONST		:(DIGIT)*[.](DIGIT)+(EXP)? | (DIGIT)+[.](DIGIT)*(EXP)? | (DIGIT)+(EXP);
 COMPLEX_CONST	:'(' (REAL_CONST) (',') (REAL_CONST)? ')' | '(' (REAL_CONST)? (',') (REAL_CONST) ')';
 BOOL_CONST		:(TRUE | FALSE);
+STR_CONST		:'"'((~('"'|'\\'))|ESCAPE_CHAR)*'"'{processString(1);};
 OBJECTID		:LETTER(LETTER | DIGIT)*;
 
 
@@ -201,8 +204,8 @@ STAR						:'*';
 SLASH						:'/';
 TILDE						:'~';
 LT							:'<';
-EQUALS						:'==';
 GT							:'>';
+EQUALS						:'==';
 LEQ							:'<=';
 GEQ							:'>=';
 NEQ							:'!=';
@@ -210,30 +213,29 @@ LBRACE						:'{';
 RBRACE						:'}';
 DOT							:'.';
 ASSIGN						:'=';
+POW							:'^';
+MOD 						:'%';
 
 // whitespaces
-
-WHITESPACE 					:[\n\t\v\b\r]+ -> skip;
+WHITESPACE 					:[\n\t\b\r]+ -> skip;
 SPACES						:(' ')* -> skip;
-STR_CONST					:'"'((~('"'|'\\'))|ESCAPE_CHAR)*'"'{processString(1);};
+
 
 //comments
 SIMPLE_COMMENT				:'##' (.)*? (WHITESPACE) -> skip;
 
-
 // invalid tokens and errors
-
+ERROR 						: EOF_STRING | INVALID_ESCAPE | INVALID_CHARS;
 EOF_STRING					:'"'(~('"'))*('<<EOF>>') {reportError("EOF in String");};
 INVALID_ESCAPE				:'"'('\\')'"' {reportError("Invalid Escape Character");};
 INVALID_CHARS				:.{processString(2);};
 
-
 // fragments defined for better readability
-
 fragment DIGIT				:[0-9];
 fragment HEX				:[a-fA-F0-9];
 fragment EXP				:[Ee][+-]?(DIGIT)+;
 fragment LOWERCASE			:[a-z];
 fragment UPPERCASE			:[A-Z];
-fragment LETTER				:[a-zA-z_];
+fragment LETTER				:[a-zA-Z_];
 fragment ESCAPE_CHAR		:'\\' . ;
+fragment LABEL				: OBJECTID COLON;
