@@ -132,6 +132,15 @@ var_decleration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
 
 var_val_asgn				: var ASSIGN constant SEMICOLON;
 
+//Done by Adarsh Patel
+// Rules for array declerations
+arr_data_type                : STATIC? (UNSIGNED? LONG? INT | BOOL | CHAR | REAL | COMPLEX);
+arr_declerations            : arr_data_type COLON COLON var LPAREN INT_CONST RPAREN SEMICOLON;
+
+// Rules for assigning values to array variables
+arr_val_asgn_one            : var LPAREN INT_CONST RPAREN ASSIGN constant SEMICOLON;
+arr_val_asgn_all            : var ASSIGN LPAREN SLASH (constant COMMA)* constant SLASH RPAREN SEMICOLON;
+
 
 // Done by Souradeep Chatterjee
 expression 					: arithmetic_expression |
