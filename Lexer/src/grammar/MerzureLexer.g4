@@ -134,17 +134,20 @@ var_val_asgn				: var ASSIGN constant SEMICOLON;
 
 
 // Done by Souradeep Chatterjee
-equation					: expression relop expression;
+expression 					: arithmetic_expression |
+						  boolean_expression
+						  ;
+equation					: arithmetic_expression relop arithmetic_expression;
 
-expression					: expression POW expression |
-							  expression SLASH expression |
-							  expression STAR expression |
-							  expression PLUS expression |
-							  expression MINUS expression |
-							  LPAREN expression RPAREN |
-							  (PLUS | MINUS)? constant |
-							  (PLUS | MINUS)? var
-							  ;
+arithmetic_expression				: arithmetic_expression POW arithmetic_expression |
+						  arithmetic_expression SLASH arithmetic_expression |
+						  arithmetic_expression STAR arithmetic_expression |
+					          arithmetic_expression PLUS arithmetic_expression |
+					          arithmetic_expression MINUS arithmetic_expression |
+						  LPAREN expression RPAREN |
+						  (PLUS | MINUS)? constant |
+						  (PLUS | MINUS)? var
+						  ;
 
 relop						: LT | EQUALS | GT | LEQ | GEQ | NEQ | ASSIGN;
 
@@ -157,6 +160,19 @@ constant					: BOOL_CONST |
 							  ;
 
 var 						: OBJECTID;
+
+//Done by Praneeth
+boolean_expression 			: sub_exp1 (OR sub_exp1)? ;
+
+sub_exp1				: sub_exp2 (AND sub_exp2)? ;
+
+sub_exp2 				: TRUE | 
+					  FALSE |
+					  equation |
+		 			  NOT sub_exp2 |
+					  LPAREN boolean_expression RPAREN 
+					  ;
+
 
 // Done by Alekhya Madanu
 function                 : functionStatement functionBody;
@@ -198,6 +214,9 @@ VOID			:'void';
 FUNCTION		:'function';
 STATIC			: 'static';
 TRUE			:'true';
+AND 			: 'and';
+OR 			: 'or';
+NOT 			: 'not';
 
 //rules for identifiers and different constants.
 CHAR_CONST		:['] (LETTER | ESCAPE_CHAR) ['];
