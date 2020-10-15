@@ -130,6 +130,8 @@ var_type					: (STATIC? CONST? | CONST? STATIC?) (UNSIGNED? LONG? INT | CHAR | R
 
 var_decleration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
 
+var_val_asgn				: var ASSIGN constant SEMICOLON;
+
 
 // Done by Souradeep Chatterjee
 equation					: expression relop expression;
