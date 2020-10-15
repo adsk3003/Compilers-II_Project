@@ -126,7 +126,7 @@ loop_statement				: FOR LPAREN (expression)? SEMICOLON (expression)? SEMICOLON (
 
 jump_statement				: CONTINUE | BREAK | RETURN ;
 
-var_type					: CHAR | INT | REAL | BOOL | COMPLEX;
+var_type					: (STATIC? CONST? | CONST? STATIC?) (UNSIGNED? LONG? INT | CHAR | REAL | BOOL | COMPLEX | AUTO);
 
 var_decleration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
 
