@@ -46,7 +46,7 @@ grammar MerzureLexer;
 				}
 			}
 		}
-		
+
 
 		switch(i)
 		{
@@ -61,7 +61,7 @@ grammar MerzureLexer;
 					 			case '0' : result = result.concat("0");
 					 					   break;
 					 			case 'n' : result = result = result.concat("\n");
-					 					   break;		
+					 					   break;
 					 			case 'f' : result = result = result.concat("\f");
 					 					   break;
 					 			case 'r' : result = result = result.concat("\r");
@@ -69,19 +69,19 @@ grammar MerzureLexer;
 					 			case 't' : result = result = result.concat("\t");
 					 					   break;
 					 			case 'b' : result = result = result.concat("\b");
-					 					   break;	
+					 					   break;
 					 			case '"' : reportError("Invalid Escape Character");
-					 					   break;		   								
+					 					   break;
 					 			default  : result = result = result.concat(String.valueOf(text.charAt(index+1)));
 					 					   break;
 					 		}
-					 		index = index + 2;	
-					 		continue;			
+					 		index = index + 2;
+					 		continue;
 					 	}
 					 	else
 					 	{
 					 			result = result.concat(String.valueOf(text.charAt(index)));
-					 			index = index + 1; 
+					 			index = index + 1;
 					 	}
 					 }
 				    break;
@@ -111,7 +111,7 @@ statement 					: expression_statement |
 compound_statement			: (statement)+;
 
 expression_statement		: expression;
-selection_statement		    : IF LPAREN expression RPAREN 
+selection_statement		    : IF LPAREN expression RPAREN
         					  compound_statement
         					  (ELIF LPAREN expression RPAREN
         					  compound_statement)*?
@@ -123,7 +123,7 @@ loop_statement				: FOR LPAREN (expression)? SEMICOLON (expression)? SEMICOLON (
 							  compound_statement
 							  END FOR
 							  ;
-							  	
+
 jump_statement				: CONTINUE | BREAK | RETURN ;
 
 
@@ -143,16 +143,29 @@ expression					: expression POW expression |
 
 relop						: LT | EQUALS | GT | LEQ | GEQ | NEQ | ASSIGN;
 
-constant					: BOOL_CONST | 
-							  REAL_CONST | 
-							  INT_CONST | 
-							  CHAR_CONST | 
+constant					: BOOL_CONST |
+							  REAL_CONST |
+							  INT_CONST |
+							  CHAR_CONST |
 							  COMPLEX_CONST |
 							  STR_CONST
 							  ;
-							  
-var 						: OBJECTID;	
 
+var 						: OBJECTID;
+
+// Done by Alekhya Madanu
+function                 : functionStatement functionBody;
+
+functionStatement        : type FUNCTION var LPAREN parlist? RPAREN EOL? ;
+parlist                  : type var (COMMA type var)* ;
+
+functionBody             : compound_statement END FUNCTION var;
+
+functionPrototype        : type FUNCTION var LPAREN protParlist? RPAREN SEMICOLON;
+protParlist              : type (COMMA type)* ;
+
+EOL                      : [\r\n]+;
+type                     : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
 
 
 // Done By Adil Tanveer and Souradeep Chatterjee
