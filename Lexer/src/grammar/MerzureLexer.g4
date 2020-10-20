@@ -1,6 +1,6 @@
 grammar MerzureLexer;
 
-@members{
+@lexer :: members{
 
 	/*
 		YOU CAN ADD YOUR MEMBER VARIABLES AND METHODS HERE
@@ -111,91 +111,104 @@ statement 					: expression_statement |
 compound_statement			: (statement)+;
 
 expression_statement		: expression;
-selection_statement		    : IF LPAREN expression RPAREN
+selection_statement		    : IF LPAREN boolean_expression RPAREN
         					  compound_statement
-        					  (ELIF LPAREN expression RPAREN
+        					  (ELIF LPAREN boolean_expression RPAREN
         					  compound_statement)*?
         					  (ELSE compound_statement)?
         					  END IF
     						  ;
 
-loop_statement				: FOR LPAREN (expression)? SEMICOLON (expression)? SEMICOLON (expression)? RPAREN
+loop_statement				: FOR LPAREN (arithmetic_expression)? SEMICOLON (boolean_expression)? SEMICOLON (arithmetic_expression)? RPAREN
 							  compound_statement
 							  END FOR
 							  ;
 
 jump_statement				: CONTINUE | BREAK | RETURN ;
 
-var_type					: (STATIC? CONST? | CONST? STATIC?) (UNSIGNED? LONG? INT | CHAR | REAL | BOOL | COMPLEX | AUTO);
+var_declaration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
 
-var_decleration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
+var_val_asgn				: var ASSIGN primary_expression SEMICOLON;
 
-var_val_asgn				: var ASSIGN constant SEMICOLON;
+var_type					: ((storage_class)? (CONST)? | (CONST)? (storage_class)?) (type);
 
-//Done by Adarsh Patel
-// Rules for array declerations
-arr_data_type                : STATIC? (UNSIGNED? LONG? INT | BOOL | CHAR | REAL | COMPLEX);
-arr_declerations            : arr_data_type COLON COLON var LPAREN INT_CONST RPAREN SEMICOLON;
+type 						: math_type | non_math_type;
+
+math_type 					: (UNSIGNED)? (LONG? INT | REAL);
+
+non_math_type 				: (CHAR | BOOL | COMPLEX);
+
+storage_class				: STATIC | AUTO;
+
+
+// Done by Adarsh Patel
+// Rules for array declarations
+arr_data_type               : STATIC? (UNSIGNED? LONG? INT | BOOL | CHAR | REAL | COMPLEX);
+arr_declarations            : arr_data_type COLON COLON var LPAREN arithmetic_expression RPAREN SEMICOLON;
 
 // Rules for assigning values to array variables
-arr_val_asgn_one            : var LPAREN INT_CONST RPAREN ASSIGN constant SEMICOLON;
-arr_val_asgn_all            : var ASSIGN LPAREN SLASH (constant COMMA)* constant SLASH RPAREN SEMICOLON;
+arr_val_asgn_one            : var LPAREN arithmetic_expression RPAREN ASSIGN arithmetic_expression SEMICOLON;
+arr_val_asgn_all            : var ASSIGN LPAREN SLASH (arithmetic_expression COMMA)* arithmetic_expression SLASH RPAREN SEMICOLON;
+
+
+
+// Done by Praneeth
+expression 					: boolean_expression | arithmetic_expression;
+
+boolean_expression			: logical_or_expression | logical_and_expression;
+
+logical_or_expression		: logical_and_expression | logical_or_expression OR logical_and_expression;
+
+logical_and_expression		: logical_and_expression AND relational_expression | relational_expression;
 
 
 // Done by Souradeep Chatterjee
-expression 					: arithmetic_expression |
-						  boolean_expression
-						  ;
-equation					: arithmetic_expression relop arithmetic_expression;
+relational_expression		: arithmetic_expression | 
+							  relational_expression relop arithmetic_expression |
+							  relational_expression eq_op arithmetic_expression
+							  ;
 
-arithmetic_expression				: arithmetic_expression POW arithmetic_expression |
-						  arithmetic_expression SLASH arithmetic_expression |
-						  arithmetic_expression STAR arithmetic_expression |
-					          arithmetic_expression PLUS arithmetic_expression |
-					          arithmetic_expression MINUS arithmetic_expression |
-						  LPAREN expression RPAREN |
-						  (PLUS | MINUS)? constant |
-						  (PLUS | MINUS)? var
-						  ;
+relop						: LT | GT | LEQ | GEQ;
+eq_op						: EQUALS | NEQ;
 
-relop						: LT | EQUALS | GT | LEQ | GEQ | NEQ | ASSIGN;
+arithmetic_expression		: unary_expression |
+							  arithmetic_expression POW arithmetic_expression |
+							  arithmetic_expression SLASH arithmetic_expression |
+							  arithmetic_expression STAR arithmetic_expression |
+						      arithmetic_expression PLUS arithmetic_expression |
+						      arithmetic_expression MINUS arithmetic_expression
+						  	  ;
 
-constant					: BOOL_CONST |
-							  REAL_CONST |
-							  INT_CONST |
-							  CHAR_CONST |
-							  COMPLEX_CONST |
-							  STR_CONST
+unary_expression			: unary_operator ? primary_expression;
+
+unary_operator				: PLUS | MINUS | NOT;
+
+primary_expression			: var |
+							  constant |
+							  LPAREN expression RPAREN
 							  ;
 
 var 						: OBJECTID;
 
-//Done by Praneeth
-boolean_expression 			: sub_exp1 (OR sub_exp1)? ;
-
-sub_exp1				: sub_exp2 (AND sub_exp2)? ;
-
-sub_exp2 				: TRUE | 
-					  FALSE |
-					  equation |
-		 			  NOT sub_exp2 |
-					  LPAREN boolean_expression RPAREN 
-					  ;
+constant					: BOOL_CONST |
+						  	  REAL_CONST |
+						  	  INT_CONST
+						  	  ;
 
 
 // Done by Alekhya Madanu
 function                 : functionStatement functionBody;
 
-functionStatement        : type FUNCTION var LPAREN parlist? RPAREN EOL? ;
-parlist                  : type var (COMMA type var)* ;
+functionStatement        : return_type FUNCTION var LPAREN parlist? RPAREN EOL? ;
+parlist                  : var_type var (COMMA var_type var)* ;
 
 functionBody             : compound_statement END FUNCTION var;
 
-functionPrototype        : type FUNCTION var LPAREN protParlist? RPAREN SEMICOLON;
-protParlist              : type (COMMA type)* ;
+functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN SEMICOLON;
+protParlist              : var_type (COMMA var_type)* ;
 
 EOL                      : [\r\n]+;
-type                     : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
+return_type              : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
 
 
 // Done By Adil Tanveer and Souradeep Chatterjee
@@ -264,7 +277,7 @@ MOD 						:'%';
 
 // whitespaces
 WHITESPACE 					:[\n\t\b\r]+ -> skip;
-SPACES						:(' ')* -> skip;
+SPACES						:(' ')+ -> skip;
 
 
 //comments
