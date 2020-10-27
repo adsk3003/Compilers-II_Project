@@ -105,7 +105,10 @@ grammar MerzureLexer;
 statement 					: expression_statement |
 							  selection_statement |
 							  loop_statement |
-							  jump_statement
+							  jump_statement |
+							  var_val_asgn |
+							  arr_val_asgn_all |
+							  arr_val_asgn_one
 							  ;
 
 compound_statement			: (statement)+;
@@ -128,7 +131,7 @@ jump_statement				: CONTINUE | BREAK | RETURN ;
 
 var_declaration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
 
-var_val_asgn				: var ASSIGN primary_expression SEMICOLON;
+var_val_asgn				: var ASSIGN arithmetic_expression SEMICOLON;
 
 var_type					: ((storage_class)? (CONST)? | (CONST)? (storage_class)?) (type);
 
