@@ -1,3 +1,4 @@
+## Functions
 int :: a, b, ans;
 
 a = 10;

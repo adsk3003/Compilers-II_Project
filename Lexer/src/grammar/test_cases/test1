@@ -1,3 +1,5 @@
+## This is a comment
+## Variable declerations, value assigning
 char :: c1, c2;
 c1 = 'a';
 c2 = 'c';
