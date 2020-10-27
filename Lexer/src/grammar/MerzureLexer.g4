@@ -112,21 +112,22 @@ statement 					: expression_statement |
 							  var_declaration |
 							  arr_declarations |
 							  function |
-							  functionPrototype
+							  functionPrototype |
+							  var_asgn_function_call
 							  ;
 
-compound_statement			: (statement SEMICOLON EOL?)+ ;//EOF?;
+compound_statement			: (statement SEMICOLON EOL?)+ ;
 
 expression_statement		: expression;
 selection_statement		    : IF LPAREN boolean_expression RPAREN EOL?
         					  compound_statement
         					  (ELIF LPAREN boolean_expression RPAREN EOL?
         					  compound_statement)*?
-        					  (ELSE compound_statement EOL?)?
+        					  (ELSE EOL? compound_statement)?
         					  END IF EOL?
     						  ;
 
-loop_statement				: FOR LPAREN (arithmetic_expression)? SEMICOLON (boolean_expression)? SEMICOLON (arithmetic_expression)? RPAREN EOL?
+loop_statement				: FOR LPAREN (var_val_asgn)? SEMICOLON (boolean_expression)? SEMICOLON (var_val_asgn)? RPAREN EOL?
 							  compound_statement
 							  END FOR EOL?
 							  ;
@@ -199,7 +200,8 @@ var 						: OBJECTID;
 
 constant					: BOOL_CONST |
 						  	  REAL_CONST |
-						  	  INT_CONST
+						  	  INT_CONST |
+							  CHAR_CONST
 						  	  ;
 
 
@@ -213,6 +215,8 @@ functionBody             : compound_statement END FUNCTION var;
 
 functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN ;
 protParlist              : var_type (COMMA var_type)* ;
+
+var_asgn_function_call		: var ASSIGN var LPAREN ((var COMMA)* var)? RPAREN;
 
 EOL                      : [\r\n]+;
 return_type              : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
