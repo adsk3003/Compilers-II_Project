@@ -1,9 +1,0 @@
-## If statement
-int :: a, b;
-a = 2;
-b = 3;
-
-if (a < b)
-    a = a + b;
-    b = a - b;
-end if;
