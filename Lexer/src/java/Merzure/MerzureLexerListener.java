@@ -378,6 +378,16 @@ public interface MerzureLexerListener extends ParseTreeListener {
 	 */
 	void exitVar_asgn_function_call(MerzureLexerParser.Var_asgn_function_callContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MerzureLexerParser#no_asgn_function_call}.
+	 * @param ctx the parse tree
+	 */
+	void enterNo_asgn_function_call(MerzureLexerParser.No_asgn_function_callContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MerzureLexerParser#no_asgn_function_call}.
+	 * @param ctx the parse tree
+	 */
+	void exitNo_asgn_function_call(MerzureLexerParser.No_asgn_function_callContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MerzureLexerParser#return_type}.
 	 * @param ctx the parse tree
 	 */

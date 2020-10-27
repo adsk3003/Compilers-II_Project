@@ -460,6 +460,18 @@ public class MerzureLexerBaseListener implements MerzureLexerListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNo_asgn_function_call(MerzureLexerParser.No_asgn_function_callContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNo_asgn_function_call(MerzureLexerParser.No_asgn_function_callContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterReturn_type(MerzureLexerParser.Return_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
