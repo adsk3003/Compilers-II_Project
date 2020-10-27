@@ -211,12 +211,13 @@ function                 : functionStatement functionBody;
 functionStatement        : return_type FUNCTION var LPAREN parlist? RPAREN EOL? ;
 parlist                  : var_type var (COMMA var_type var)* ;
 
-functionBody             : compound_statement END FUNCTION var;
+functionBody             : compound_statement END FUNCTION var?;
 
 functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN ;
 protParlist              : var_type (COMMA var_type)* ;
 
 var_asgn_function_call		: var ASSIGN var LPAREN ((var COMMA)* var)? RPAREN;
+no_asgn_function_call		: var LPAREN ((var COMMA)* var)? RPAREN;
 
 EOL                      : [\r\n]+;
 return_type              : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
