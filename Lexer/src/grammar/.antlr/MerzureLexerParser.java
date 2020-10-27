@@ -1,5 +1,4 @@
-// Generated from MerzureLexer.g4 by ANTLR 4.5
-package Merzure;
+// Generated from /home/akashdeep/Compilers-II_Project/Lexer/src/grammar/MerzureLexer.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class MerzureLexerParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.5", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -39,38 +38,47 @@ public class MerzureLexerParser extends Parser {
 		RULE_constant = 29, RULE_function = 30, RULE_functionStatement = 31, RULE_parlist = 32, 
 		RULE_functionBody = 33, RULE_functionPrototype = 34, RULE_protParlist = 35, 
 		RULE_return_type = 36;
-	public static final String[] ruleNames = {
-		"statement", "compound_statement", "expression_statement", "selection_statement", 
-		"loop_statement", "jump_statement", "var_declaration", "var_val_asgn", 
-		"var_type", "type", "math_type", "non_math_type", "storage_class", "arr_data_type", 
-		"arr_declarations", "arr_val_asgn_one", "arr_val_asgn_all", "expression", 
-		"boolean_expression", "logical_or_expression", "logical_and_expression", 
-		"relational_expression", "relop", "eq_op", "arithmetic_expression", "unary_expression", 
-		"unary_operator", "primary_expression", "var", "constant", "function", 
-		"functionStatement", "parlist", "functionBody", "functionPrototype", "protParlist", 
-		"return_type"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"statement", "compound_statement", "expression_statement", "selection_statement", 
+			"loop_statement", "jump_statement", "var_declaration", "var_val_asgn", 
+			"var_type", "type", "math_type", "non_math_type", "storage_class", "arr_data_type", 
+			"arr_declarations", "arr_val_asgn_one", "arr_val_asgn_all", "expression", 
+			"boolean_expression", "logical_or_expression", "logical_and_expression", 
+			"relational_expression", "relop", "eq_op", "arithmetic_expression", "unary_expression", 
+			"unary_operator", "primary_expression", "var", "constant", "function", 
+			"functionStatement", "parlist", "functionBody", "functionPrototype", 
+			"protParlist", "return_type"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, null, "'char'", "'const'", "'auto'", "'unsigned'", "'break'", "'continue'", 
-		"'complex'", "'else'", "'bool'", "'for'", "'if'", "'elif'", "'real'", 
-		"'int'", "'long'", "'return'", "'false'", "'include'", "'end'", "'void'", 
-		"'function'", "'static'", "'true'", "'and'", "'or'", "'not'", null, null, 
-		null, null, null, null, null, "'('", "')'", "':'", "'@'", "';'", "','", 
-		"'+'", "'-'", "'*'", "'/'", "'~'", "'<'", "'>'", "'=='", "'<='", "'>='", 
-		"'!='", "'{'", "'}'", "'.'", "'='", "'^'", "'%'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, "EOL", "CHAR", "CONST", "AUTO", "UNSIGNED", "BREAK", "CONTINUE", 
-		"COMPLEX", "ELSE", "BOOL", "FOR", "IF", "ELIF", "REAL", "INT", "LONG", 
-		"RETURN", "FALSE", "INCLUDE", "END", "VOID", "FUNCTION", "STATIC", "TRUE", 
-		"AND", "OR", "NOT", "CHAR_CONST", "INT_CONST", "REAL_CONST", "COMPLEX_CONST", 
-		"BOOL_CONST", "STR_CONST", "OBJECTID", "LPAREN", "RPAREN", "COLON", "ATSYM", 
-		"SEMICOLON", "COMMA", "PLUS", "MINUS", "STAR", "SLASH", "TILDE", "LT", 
-		"GT", "EQUALS", "LEQ", "GEQ", "NEQ", "LBRACE", "RBRACE", "DOT", "ASSIGN", 
-		"POW", "MOD", "WHITESPACE", "SPACES", "SIMPLE_COMMENT", "ERROR", "EOF_STRING", 
-		"INVALID_ESCAPE", "INVALID_CHARS"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, "'char'", "'const'", "'auto'", "'unsigned'", "'break'", "'continue'", 
+			"'complex'", "'else'", "'bool'", "'for'", "'if'", "'elif'", "'real'", 
+			"'int'", "'long'", "'return'", "'false'", "'include'", "'end'", "'void'", 
+			"'function'", "'static'", "'true'", "'and'", "'or'", "'not'", null, null, 
+			null, null, null, null, null, "'('", "')'", "':'", "'@'", "';'", "','", 
+			"'+'", "'-'", "'*'", "'/'", "'~'", "'<'", "'>'", "'=='", "'<='", "'>='", 
+			"'!='", "'{'", "'}'", "'.'", "'='", "'^'", "'%'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "EOL", "CHAR", "CONST", "AUTO", "UNSIGNED", "BREAK", "CONTINUE", 
+			"COMPLEX", "ELSE", "BOOL", "FOR", "IF", "ELIF", "REAL", "INT", "LONG", 
+			"RETURN", "FALSE", "INCLUDE", "END", "VOID", "FUNCTION", "STATIC", "TRUE", 
+			"AND", "OR", "NOT", "CHAR_CONST", "INT_CONST", "REAL_CONST", "COMPLEX_CONST", 
+			"BOOL_CONST", "STR_CONST", "OBJECTID", "LPAREN", "RPAREN", "COLON", "ATSYM", 
+			"SEMICOLON", "COMMA", "PLUS", "MINUS", "STAR", "SLASH", "TILDE", "LT", 
+			"GT", "EQUALS", "LEQ", "GEQ", "NEQ", "LBRACE", "RBRACE", "DOT", "ASSIGN", 
+			"POW", "MOD", "WHITESPACE", "SPACES", "SIMPLE_COMMENT", "ERROR", "EOF_STRING", 
+			"INVALID_ESCAPE", "INVALID_CHARS"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -120,6 +128,7 @@ public class MerzureLexerParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class StatementContext extends ParserRuleContext {
 		public Expression_statementContext expression_statement() {
 			return getRuleContext(Expression_statementContext.class,0);
@@ -146,11 +155,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -158,6 +162,7 @@ public class MerzureLexerParser extends Parser {
 		enterRule(_localctx, 0, RULE_statement);
 		try {
 			setState(81);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -232,11 +237,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_compound_statement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitCompound_statement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Compound_statementContext compound_statement() throws RecognitionException {
@@ -281,11 +281,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression_statement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitExpression_statement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Expression_statementContext expression_statement() throws RecognitionException {
@@ -344,11 +339,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_selection_statement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitSelection_statement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Selection_statementContext selection_statement() throws RecognitionException {
@@ -394,6 +384,7 @@ public class MerzureLexerParser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
 			setState(108);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ELSE) {
 				{
@@ -449,11 +440,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loop_statement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitLoop_statement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Loop_statementContext loop_statement() throws RecognitionException {
@@ -468,6 +454,7 @@ public class MerzureLexerParser extends Parser {
 			setState(114);
 			match(LPAREN);
 			setState(116);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NOT) | (1L << INT_CONST) | (1L << REAL_CONST) | (1L << BOOL_CONST) | (1L << OBJECTID) | (1L << LPAREN) | (1L << PLUS) | (1L << MINUS))) != 0)) {
 				{
@@ -479,6 +466,7 @@ public class MerzureLexerParser extends Parser {
 			setState(118);
 			match(SEMICOLON);
 			setState(120);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NOT) | (1L << INT_CONST) | (1L << REAL_CONST) | (1L << BOOL_CONST) | (1L << OBJECTID) | (1L << LPAREN) | (1L << PLUS) | (1L << MINUS))) != 0)) {
 				{
@@ -490,6 +478,7 @@ public class MerzureLexerParser extends Parser {
 			setState(122);
 			match(SEMICOLON);
 			setState(124);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NOT) | (1L << INT_CONST) | (1L << REAL_CONST) | (1L << BOOL_CONST) | (1L << OBJECTID) | (1L << LPAREN) | (1L << PLUS) | (1L << MINUS))) != 0)) {
 				{
@@ -527,11 +516,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_jump_statement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitJump_statement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Jump_statementContext jump_statement() throws RecognitionException {
@@ -545,7 +529,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BREAK) | (1L << CONTINUE) | (1L << RETURN))) != 0)) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -584,11 +571,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var_declaration; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitVar_declaration(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Var_declarationContext var_declaration() throws RecognitionException {
@@ -652,11 +634,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var_val_asgn; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitVar_val_asgn(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Var_val_asgnContext var_val_asgn() throws RecognitionException {
@@ -698,11 +675,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var_type; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitVar_type(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Var_typeContext var_type() throws RecognitionException {
@@ -713,10 +685,12 @@ public class MerzureLexerParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(164);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
 				setState(153);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==AUTO || _la==STATIC) {
 					{
@@ -726,6 +700,7 @@ public class MerzureLexerParser extends Parser {
 				}
 
 				setState(156);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==CONST) {
 					{
@@ -739,6 +714,7 @@ public class MerzureLexerParser extends Parser {
 			case 2:
 				{
 				setState(159);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==CONST) {
 					{
@@ -748,6 +724,7 @@ public class MerzureLexerParser extends Parser {
 				}
 
 				setState(162);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==AUTO || _la==STATIC) {
 					{
@@ -787,11 +764,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_type; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitType(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TypeContext type() throws RecognitionException {
@@ -799,6 +771,7 @@ public class MerzureLexerParser extends Parser {
 		enterRule(_localctx, 18, RULE_type);
 		try {
 			setState(170);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case UNSIGNED:
 			case REAL:
@@ -843,11 +816,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_math_type; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitMath_type(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Math_typeContext math_type() throws RecognitionException {
@@ -858,6 +826,7 @@ public class MerzureLexerParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(173);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==UNSIGNED) {
 				{
@@ -867,11 +836,13 @@ public class MerzureLexerParser extends Parser {
 			}
 
 			setState(180);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
 			case LONG:
 				{
 				setState(176);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==LONG) {
 					{
@@ -914,11 +885,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_non_math_type; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitNon_math_type(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Non_math_typeContext non_math_type() throws RecognitionException {
@@ -932,7 +898,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CHAR) | (1L << COMPLEX) | (1L << BOOL))) != 0)) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -955,11 +924,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_storage_class; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitStorage_class(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Storage_classContext storage_class() throws RecognitionException {
@@ -973,7 +937,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !(_la==AUTO || _la==STATIC) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -1002,11 +969,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arr_data_type; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitArr_data_type(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Arr_data_typeContext arr_data_type() throws RecognitionException {
@@ -1017,6 +979,7 @@ public class MerzureLexerParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(187);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==STATIC) {
 				{
@@ -1026,12 +989,14 @@ public class MerzureLexerParser extends Parser {
 			}
 
 			setState(200);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case UNSIGNED:
 			case INT:
 			case LONG:
 				{
 				setState(190);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==UNSIGNED) {
 					{
@@ -1041,6 +1006,7 @@ public class MerzureLexerParser extends Parser {
 				}
 
 				setState(193);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==LONG) {
 					{
@@ -1114,11 +1080,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arr_declarations; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitArr_declarations(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Arr_declarationsContext arr_declarations() throws RecognitionException {
@@ -1174,11 +1135,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arr_val_asgn_one; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitArr_val_asgn_one(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Arr_val_asgn_oneContext arr_val_asgn_one() throws RecognitionException {
@@ -1240,11 +1196,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arr_val_asgn_all; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitArr_val_asgn_all(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Arr_val_asgn_allContext arr_val_asgn_all() throws RecognitionException {
@@ -1312,11 +1263,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ExpressionContext expression() throws RecognitionException {
@@ -1324,6 +1270,7 @@ public class MerzureLexerParser extends Parser {
 		enterRule(_localctx, 34, RULE_expression);
 		try {
 			setState(238);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -1363,11 +1310,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_boolean_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitBoolean_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Boolean_expressionContext boolean_expression() throws RecognitionException {
@@ -1375,6 +1317,7 @@ public class MerzureLexerParser extends Parser {
 		enterRule(_localctx, 36, RULE_boolean_expression);
 		try {
 			setState(242);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -1415,11 +1358,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_logical_or_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitLogical_or_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Logical_or_expressionContext logical_or_expression() throws RecognitionException {
@@ -1491,11 +1429,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_logical_and_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitLogical_and_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Logical_and_expressionContext logical_and_expression() throws RecognitionException {
@@ -1572,11 +1505,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_relational_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitRelational_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Relational_expressionContext relational_expression() throws RecognitionException {
@@ -1608,6 +1536,7 @@ public class MerzureLexerParser extends Parser {
 					_prevctx = _localctx;
 					{
 					setState(277);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,26,_ctx) ) {
 					case 1:
 						{
@@ -1662,11 +1591,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_relop; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitRelop(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final RelopContext relop() throws RecognitionException {
@@ -1680,7 +1604,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LT) | (1L << GT) | (1L << LEQ) | (1L << GEQ))) != 0)) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -1703,11 +1630,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_eq_op; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitEq_op(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Eq_opContext eq_op() throws RecognitionException {
@@ -1721,7 +1643,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !(_la==EQUALS || _la==NEQ) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -1756,11 +1681,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arithmetic_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitArithmetic_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Arithmetic_expressionContext arithmetic_expression() throws RecognitionException {
@@ -1792,6 +1712,7 @@ public class MerzureLexerParser extends Parser {
 					_prevctx = _localctx;
 					{
 					setState(304);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,28,_ctx) ) {
 					case 1:
 						{
@@ -1884,11 +1805,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_unary_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitUnary_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Unary_expressionContext unary_expression() throws RecognitionException {
@@ -1899,6 +1815,7 @@ public class MerzureLexerParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(310);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NOT) | (1L << PLUS) | (1L << MINUS))) != 0)) {
 				{
@@ -1930,11 +1847,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_unary_operator; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitUnary_operator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Unary_operatorContext unary_operator() throws RecognitionException {
@@ -1948,7 +1860,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NOT) | (1L << PLUS) | (1L << MINUS))) != 0)) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -1980,11 +1895,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_primary_expression; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitPrimary_expression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Primary_expressionContext primary_expression() throws RecognitionException {
@@ -1992,6 +1902,7 @@ public class MerzureLexerParser extends Parser {
 		enterRule(_localctx, 54, RULE_primary_expression);
 		try {
 			setState(322);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case OBJECTID:
 				enterOuterAlt(_localctx, 1);
@@ -2041,11 +1952,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitVar(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final VarContext var() throws RecognitionException {
@@ -2077,11 +1983,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_constant; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitConstant(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ConstantContext constant() throws RecognitionException {
@@ -2095,7 +1996,10 @@ public class MerzureLexerParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT_CONST) | (1L << REAL_CONST) | (1L << BOOL_CONST))) != 0)) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -2122,11 +2026,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_function; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitFunction(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionContext function() throws RecognitionException {
@@ -2170,11 +2069,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionStatement; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitFunctionStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionStatementContext functionStatement() throws RecognitionException {
@@ -2193,6 +2087,7 @@ public class MerzureLexerParser extends Parser {
 			setState(334);
 			match(LPAREN);
 			setState(336);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CHAR) | (1L << CONST) | (1L << AUTO) | (1L << UNSIGNED) | (1L << COMPLEX) | (1L << BOOL) | (1L << REAL) | (1L << INT) | (1L << LONG) | (1L << STATIC))) != 0)) {
 				{
@@ -2204,6 +2099,7 @@ public class MerzureLexerParser extends Parser {
 			setState(338);
 			match(RPAREN);
 			setState(340);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EOL) {
 				{
@@ -2246,11 +2142,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parlist; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitParlist(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ParlistContext parlist() throws RecognitionException {
@@ -2308,11 +2199,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionBody; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitFunctionBody(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionBodyContext functionBody() throws RecognitionException {
@@ -2360,11 +2246,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionPrototype; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitFunctionPrototype(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionPrototypeContext functionPrototype() throws RecognitionException {
@@ -2383,6 +2264,7 @@ public class MerzureLexerParser extends Parser {
 			setState(361);
 			match(LPAREN);
 			setState(363);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CHAR) | (1L << CONST) | (1L << AUTO) | (1L << UNSIGNED) | (1L << COMPLEX) | (1L << BOOL) | (1L << REAL) | (1L << INT) | (1L << LONG) | (1L << STATIC))) != 0)) {
 				{
@@ -2423,11 +2305,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_protParlist; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitProtParlist(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProtParlistContext protParlist() throws RecognitionException {
@@ -2481,11 +2358,6 @@ public class MerzureLexerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_return_type; }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MerzureLexerVisitor ) return ((MerzureLexerVisitor<? extends T>)visitor).visitReturn_type(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Return_typeContext return_type() throws RecognitionException {
@@ -2494,6 +2366,7 @@ public class MerzureLexerParser extends Parser {
 		int _la;
 		try {
 			setState(388);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CHAR:
 				enterOuterAlt(_localctx, 1);
@@ -2529,6 +2402,7 @@ public class MerzureLexerParser extends Parser {
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(381);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==UNSIGNED) {
 					{
@@ -2538,6 +2412,7 @@ public class MerzureLexerParser extends Parser {
 				}
 
 				setState(384);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==LONG) {
 					{
@@ -2625,7 +2500,7 @@ public class MerzureLexerParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3B\u0189\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3B\u0189\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -2656,11 +2531,11 @@ public class MerzureLexerParser extends Parser {
 		"&\3&\3&\3&\3&\5&\u0180\n&\3&\5&\u0183\n&\3&\3&\5&\u0187\n&\3&\3i\6(*,"+
 		"\62\'\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>"+
 		"@BDFHJ\2\t\4\2\b\t\23\23\5\2\4\4\n\n\f\f\4\2\6\6\31\31\4\2\60\61\63\64"+
-		"\4\2\62\62\65\65\4\2\35\35+,\4\2\37 \"\"\u019b\2S\3\2\2\2\4V\3\2\2\2\6"+
-		"Z\3\2\2\2\b\\\3\2\2\2\ns\3\2\2\2\f\u0085\3\2\2\2\16\u0087\3\2\2\2\20\u0095"+
-		"\3\2\2\2\22\u00a6\3\2\2\2\24\u00ac\3\2\2\2\26\u00af\3\2\2\2\30\u00b8\3"+
-		"\2\2\2\32\u00ba\3\2\2\2\34\u00bd\3\2\2\2\36\u00cc\3\2\2\2 \u00d5\3\2\2"+
-		"\2\"\u00dd\3\2\2\2$\u00f0\3\2\2\2&\u00f4\3\2\2\2(\u00f6\3\2\2\2*\u0101"+
+		"\4\2\62\62\65\65\4\2\35\35+,\4\2\37 \"\"\2\u019b\2S\3\2\2\2\4V\3\2\2\2"+
+		"\6Z\3\2\2\2\b\\\3\2\2\2\ns\3\2\2\2\f\u0085\3\2\2\2\16\u0087\3\2\2\2\20"+
+		"\u0095\3\2\2\2\22\u00a6\3\2\2\2\24\u00ac\3\2\2\2\26\u00af\3\2\2\2\30\u00b8"+
+		"\3\2\2\2\32\u00ba\3\2\2\2\34\u00bd\3\2\2\2\36\u00cc\3\2\2\2 \u00d5\3\2"+
+		"\2\2\"\u00dd\3\2\2\2$\u00f0\3\2\2\2&\u00f4\3\2\2\2(\u00f6\3\2\2\2*\u0101"+
 		"\3\2\2\2,\u010c\3\2\2\2.\u011c\3\2\2\2\60\u011e\3\2\2\2\62\u0120\3\2\2"+
 		"\2\64\u0138\3\2\2\2\66\u013c\3\2\2\28\u0144\3\2\2\2:\u0146\3\2\2\2<\u0148"+
 		"\3\2\2\2>\u014a\3\2\2\2@\u014d\3\2\2\2B\u0158\3\2\2\2D\u0163\3\2\2\2F"+

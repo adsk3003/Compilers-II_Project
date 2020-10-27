@@ -105,30 +105,35 @@ grammar MerzureLexer;
 statement 					: expression_statement |
 							  selection_statement |
 							  loop_statement |
-							  jump_statement
+							  jump_statement |
+							  var_val_asgn |
+							  arr_val_asgn_all |
+							  arr_val_asgn_one |
+							  var_declaration |
+							  arr_declarations
 							  ;
 
-compound_statement			: (statement)+;
+compound_statement			: (statement SEMICOLON EOL?)+ ;//EOF?;
 
 expression_statement		: expression;
-selection_statement		    : IF LPAREN boolean_expression RPAREN
+selection_statement		    : IF LPAREN boolean_expression RPAREN EOL?
         					  compound_statement
-        					  (ELIF LPAREN boolean_expression RPAREN
+        					  (ELIF LPAREN boolean_expression RPAREN EOL?
         					  compound_statement)*?
-        					  (ELSE compound_statement)?
-        					  END IF
+        					  (ELSE compound_statement EOL?)?
+        					  END IF EOL?
     						  ;
 
-loop_statement				: FOR LPAREN (arithmetic_expression)? SEMICOLON (boolean_expression)? SEMICOLON (arithmetic_expression)? RPAREN
+loop_statement				: FOR LPAREN (arithmetic_expression)? SEMICOLON (boolean_expression)? SEMICOLON (arithmetic_expression)? RPAREN EOL?
 							  compound_statement
-							  END FOR
+							  END FOR EOL?
 							  ;
 
-jump_statement				: CONTINUE | BREAK | RETURN ;
+jump_statement				: (CONTINUE | BREAK | RETURN) EOL?;
 
-var_declaration				: var_type COLON COLON (var COMMA)* var SEMICOLON;
+var_declaration				: var_type COLON COLON (var COMMA)* var ;
 
-var_val_asgn				: var ASSIGN primary_expression SEMICOLON;
+var_val_asgn				: var ASSIGN arithmetic_expression;
 
 var_type					: ((storage_class)? (CONST)? | (CONST)? (storage_class)?) (type);
 
@@ -144,11 +149,11 @@ storage_class				: STATIC | AUTO;
 // Done by Adarsh Patel
 // Rules for array declarations
 arr_data_type               : STATIC? (UNSIGNED? LONG? INT | BOOL | CHAR | REAL | COMPLEX);
-arr_declarations            : arr_data_type COLON COLON var LPAREN arithmetic_expression RPAREN SEMICOLON;
+arr_declarations            : arr_data_type COLON COLON var LPAREN arithmetic_expression RPAREN ;
 
 // Rules for assigning values to array variables
-arr_val_asgn_one            : var LPAREN arithmetic_expression RPAREN ASSIGN arithmetic_expression SEMICOLON;
-arr_val_asgn_all            : var ASSIGN LPAREN SLASH (arithmetic_expression COMMA)* arithmetic_expression SLASH RPAREN SEMICOLON;
+arr_val_asgn_one            : var LPAREN arithmetic_expression RPAREN ASSIGN arithmetic_expression ;
+arr_val_asgn_all            : var ASSIGN LPAREN SLASH (arithmetic_expression COMMA)* arithmetic_expression SLASH RPAREN ;
 
 
 
@@ -229,13 +234,13 @@ REAL			:'real';
 INT				:'int';
 LONG			:'long';
 RETURN			:'return';
-FALSE			:'false';
+// FALSE			:'false';
 INCLUDE			:'include';
 END				:'end';
 VOID			:'void';
 FUNCTION		:'function';
 STATIC			: 'static';
-TRUE			:'true';
+// TRUE			:'true';
 AND 			: 'and';
 OR 			: 'or';
 NOT 			: 'not';
@@ -298,3 +303,5 @@ fragment UPPERCASE			:[A-Z];
 fragment LETTER				:[a-zA-Z_];
 fragment ESCAPE_CHAR		:'\\' . ;
 fragment LABEL				: OBJECTID COLON;
+fragment TRUE				:'true';
+fragment FALSE				:'false';
