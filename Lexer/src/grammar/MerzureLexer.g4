@@ -111,7 +111,8 @@ statement 					: expression_statement |
 							  arr_val_asgn_one |
 							  var_declaration |
 							  arr_declarations |
-							  function
+							  function |
+							  functionPrototype
 							  ;
 
 compound_statement			: (statement SEMICOLON EOL?)+ ;//EOF?;
