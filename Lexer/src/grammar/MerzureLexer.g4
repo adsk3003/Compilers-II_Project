@@ -110,7 +110,8 @@ statement 					: expression_statement |
 							  arr_val_asgn_all |
 							  arr_val_asgn_one |
 							  var_declaration |
-							  arr_declarations
+							  arr_declarations |
+							  function
 							  ;
 
 compound_statement			: (statement SEMICOLON EOL?)+ ;//EOF?;
@@ -209,7 +210,7 @@ parlist                  : var_type var (COMMA var_type var)* ;
 
 functionBody             : compound_statement END FUNCTION var;
 
-functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN SEMICOLON;
+functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN ;
 protParlist              : var_type (COMMA var_type)* ;
 
 EOL                      : [\r\n]+;
