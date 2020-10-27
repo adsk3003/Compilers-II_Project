@@ -1,0 +1,13 @@
+int :: a, b, ans;
+
+a = 10;
+b = 25;
+
+int function power (int, int);
+
+c = power(a, b); 
+
+int function power (int num, int num_pow)
+    int :: return_val;
+    return_val = num ^ num_pow;
+end function return_val;

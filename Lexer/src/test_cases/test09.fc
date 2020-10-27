@@ -1,8 +1,0 @@
-function real this_fun(){
-    real :: a, b
-    a = 10.0001
-    return a
-}
-
-real :: c, d
-c = this_fun()

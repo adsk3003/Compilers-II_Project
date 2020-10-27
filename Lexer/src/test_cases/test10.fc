@@ -1,8 +1,0 @@
-function int this_fun(int a, int b){
-    a = a + 100
-    return a
-}
-
-int :: c, d
-d = 100
-c = this_fun(d, d)
