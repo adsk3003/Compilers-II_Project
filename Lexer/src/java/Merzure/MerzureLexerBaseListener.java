@@ -479,6 +479,18 @@ public class MerzureLexerBaseListener implements MerzureLexerListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitReturn_type(MerzureLexerParser.Return_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProgram(MerzureLexerParser.ProgramContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProgram(MerzureLexerParser.ProgramContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

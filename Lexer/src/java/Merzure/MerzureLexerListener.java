@@ -397,4 +397,14 @@ public interface MerzureLexerListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitReturn_type(MerzureLexerParser.Return_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MerzureLexerParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void enterProgram(MerzureLexerParser.ProgramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MerzureLexerParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void exitProgram(MerzureLexerParser.ProgramContext ctx);
 }
