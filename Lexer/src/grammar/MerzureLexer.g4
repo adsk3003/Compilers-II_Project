@@ -101,62 +101,69 @@ grammar MerzureLexer;
 
 // Parser Rules
 
+
+// Done by Alekhya Madanu
+program						: (function_definition EOL?)+;
+
+function_definition		 : functionPrototype | function;
+
+functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN EOL?;
+protParlist              : var_type (COMMA var_type)* ;
+
+
+function                 : functionStatement functionBody;
+functionStatement        : return_type FUNCTION var LPAREN parlist? RPAREN EOL? ;
+
+functionBody             : compound_statement END FUNCTION var?;
+
+EOL                      : [\r\n]+;
+return_type              : type | VOID;
+
+
 // Done by Adil Tanveer	 and Akashdeep Singh
+compound_statement			: (statement SEMICOLON EOL?)+ ;
+
 statement 					: expression_statement |
 							  selection_statement |
 							  loop_statement |
 							  jump_statement |
-							  var_val_asgn |
-							  arr_val_asgn_all |
-							  arr_val_asgn_one |
-							  var_declaration |
-							  arr_declarations |
-							  function |
-							  functionPrototype
+							  assignment_statement |
+							  declaration_statement
 							  ;
 
-compound_statement			: (statement SEMICOLON EOL?)+ ;//EOF?;
+
 
 expression_statement		: expression;
 selection_statement		    : IF LPAREN boolean_expression RPAREN EOL?
         					  compound_statement
         					  (ELIF LPAREN boolean_expression RPAREN EOL?
         					  compound_statement)*?
-        					  (ELSE compound_statement EOL?)?
+        					  (ELSE EOL? compound_statement)?
         					  END IF EOL?
     						  ;
 
-loop_statement				: FOR LPAREN (arithmetic_expression)? SEMICOLON (boolean_expression)? SEMICOLON (arithmetic_expression)? RPAREN EOL?
+loop_statement				: FOR LPAREN (var_val_asgn)? SEMICOLON (boolean_expression)? SEMICOLON (var_val_asgn)? RPAREN EOL?
 							  compound_statement
 							  END FOR EOL?
 							  ;
 
-jump_statement				: (CONTINUE | BREAK | RETURN) EOL?;
+jump_statement				: (CONTINUE | BREAK | RETURN expression?) EOL?;
 
+assignment_statement		: var_val_asgn | arr_val_asgn;
+var_val_asgn				: var ASSIGN expression;
+arr_val_asgn				: arr_val_asgn_one | arr_val_asgn_all;
+
+// Done by Adarsh Patel
+// Rules for assigning values to array variables
+arr_val_asgn_one            : var LPAREN arithmetic_expression RPAREN ASSIGN expression ;
+arr_val_asgn_all            : var ASSIGN LPAREN SLASH (expression COMMA)* expression SLASH RPAREN ;
+
+declaration_statement		: var_declaration | arr_declaration;
 var_declaration				: var_type COLON COLON (var COMMA)* var ;
-
-var_val_asgn				: var ASSIGN arithmetic_expression;
-
-var_type					: ((storage_class)? (CONST)? | (CONST)? (storage_class)?) (type);
-
-type 						: math_type | non_math_type;
-
-math_type 					: (UNSIGNED)? (LONG? INT | REAL);
-
-non_math_type 				: (CHAR | BOOL | COMPLEX);
-
-storage_class				: STATIC | AUTO;
-
 
 // Done by Adarsh Patel
 // Rules for array declarations
-arr_data_type               : STATIC? (UNSIGNED? LONG? INT | BOOL | CHAR | REAL | COMPLEX);
-arr_declarations            : arr_data_type COLON COLON var LPAREN arithmetic_expression RPAREN ;
-
-// Rules for assigning values to array variables
-arr_val_asgn_one            : var LPAREN arithmetic_expression RPAREN ASSIGN arithmetic_expression ;
-arr_val_asgn_all            : var ASSIGN LPAREN SLASH (arithmetic_expression COMMA)* arithmetic_expression SLASH RPAREN ;
-
+arr_declaration             : var_type COLON COLON var LPAREN arithmetic_expression RPAREN ;
 
 
 // Done by Praneeth
@@ -179,15 +186,19 @@ relop						: LT | GT | LEQ | GEQ;
 eq_op						: EQUALS | NEQ;
 
 arithmetic_expression		: unary_expression |
-							  arithmetic_expression POW arithmetic_expression |
-							  arithmetic_expression SLASH arithmetic_expression |
-							  arithmetic_expression STAR arithmetic_expression |
-						      arithmetic_expression PLUS arithmetic_expression |
-						      arithmetic_expression MINUS arithmetic_expression
+							  arithmetic_expression POW unary_expression |
+							  arithmetic_expression SLASH unary_expression |
+							  arithmetic_expression STAR unary_expression |
+							  arithmetic_expression MOD unary_expression |							  
+						      arithmetic_expression PLUS unary_expression |
+						      arithmetic_expression MINUS unary_expression
 						  	  ;
 
-unary_expression			: unary_operator ? primary_expression;
+unary_expression			: unary_operator ? primary_expression EOL? |
+							  unary_expression LPAREN (parlist)? RPAREN EOL?
+							  ;
 
+parlist                  	: var_type var (COMMA var_type var)* ;
 unary_operator				: PLUS | MINUS | NOT;
 
 primary_expression			: var |
@@ -199,23 +210,17 @@ var 						: OBJECTID;
 
 constant					: BOOL_CONST |
 						  	  REAL_CONST |
-						  	  INT_CONST
+						  	  INT_CONST |
+							  CHAR_CONST
 						  	  ;
 
+var_type					: ((storage_class)? (CONST)? | (CONST)? (storage_class)?) (type);
+type 						: math_type | non_math_type;
+math_type 					: (UNSIGNED)? (LONG? INT | REAL);
+non_math_type 				: (CHAR | BOOL | COMPLEX);
+storage_class				: STATIC | AUTO;
 
-// Done by Alekhya Madanu
-function                 : functionStatement functionBody;
 
-functionStatement        : return_type FUNCTION var LPAREN parlist? RPAREN EOL? ;
-parlist                  : var_type var (COMMA var_type var)* ;
-
-functionBody             : compound_statement END FUNCTION var;
-
-functionPrototype        : return_type FUNCTION var LPAREN protParlist? RPAREN ;
-protParlist              : var_type (COMMA var_type)* ;
-
-EOL                      : [\r\n]+;
-return_type              : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
 
 
 // Done By Adil Tanveer and Souradeep Chatterjee

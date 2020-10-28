@@ -1,0 +1,14 @@
+## Arrays
+
+void function main()
+    unsigned long int :: a;
+    a = 1001;
+
+    int :: arr_a (100);
+    int :: arr_b (5);
+
+    arr_a(10) = 100;
+    arr_a(20) = 200;
+
+    arr_b = (/1, 2, 3, 4, 5/);
+end function

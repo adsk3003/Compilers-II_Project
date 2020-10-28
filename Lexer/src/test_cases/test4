@@ -1,0 +1,14 @@
+## Functions
+void function main()
+    int :: a, b, ans;
+
+    a = 10;
+    b = 25;
+
+    c = power(a, b); 
+end function
+
+int function power (int num, int num_pow)
+    int :: return_val;
+    return_val = num ^ num_pow;
+end function return_val
