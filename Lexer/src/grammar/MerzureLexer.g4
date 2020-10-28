@@ -184,7 +184,8 @@ arithmetic_expression		: unary_expression |
 							  arithmetic_expression SLASH arithmetic_expression |
 							  arithmetic_expression STAR arithmetic_expression |
 						      arithmetic_expression PLUS arithmetic_expression |
-						      arithmetic_expression MINUS arithmetic_expression
+						      arithmetic_expression MINUS arithmetic_expression |
+							  arithmetic_expression MOD arithmetic_expression
 						  	  ;
 
 unary_expression			: unary_operator ? primary_expression;
