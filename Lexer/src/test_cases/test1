@@ -1,17 +1,20 @@
 ## This is a comment
 ## Variable declerations, value assigning
-char :: c1, c2;
-c1 = 'a';
-c2 = 'c';
 
-real :: a_real;
-a = 10.001;
+void function main()
+    char :: c1, c2;
+    c1 = 'a';
+    c2 = 'c';
 
-bool :: flag;
-flag = false;
+    real :: a_real;
+    a = 10.001;
 
-int :: a;
-a = 1;
-int :: b, c;
-b = a*100;
-c = b - a;
+    bool :: flag;
+    flag = false;
+
+    int :: a;
+    a = 1;
+    int :: b, c;
+    b = a*100;
+    c = b - a;
+end function

@@ -1,8 +1,11 @@
 ## For loops
-int :: a, b;
-b = 100;
 
-for(a = 10; a > 1; a = a/2)
-    b = b - 1;
-    b = b*2;
-end for;
+void function main()
+    int :: a, b;
+    b = 100;
+
+    for(a = 10; a > 1; a = a/2)
+        b = b - 1;
+        b = b*2;
+    end for;
+end function

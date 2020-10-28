@@ -132,7 +132,7 @@ loop_statement				: FOR LPAREN (var_val_asgn)? SEMICOLON (boolean_expression)? S
 							  END FOR EOL?
 							  ;
 
-jump_statement				: (CONTINUE | BREAK | RETURN) EOL?;
+jump_statement				: (CONTINUE | BREAK | RETURN var?) EOL?;
 
 var_declaration				: var_type COLON COLON (var COMMA)* var ;
 
@@ -221,6 +221,9 @@ no_asgn_function_call		: var LPAREN ((var COMMA)* var)? RPAREN;
 
 EOL                      : [\r\n]+;
 return_type              : CHAR | COMPLEX | BOOL | REAL | UNSIGNED? LONG? INT | VOID;
+
+
+program					: (function EOL?)+;
 
 
 // Done By Adil Tanveer and Souradeep Chatterjee

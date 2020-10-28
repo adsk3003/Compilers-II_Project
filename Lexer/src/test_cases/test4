@@ -1,14 +1,14 @@
 ## Functions
-int :: a, b, ans;
+void function main()
+    int :: a, b, ans;
 
-a = 10;
-b = 25;
+    a = 10;
+    b = 25;
 
-int function power (int, int);
-
-c = power(a, b); 
+    c = power(a, b); 
+end function
 
 int function power (int num, int num_pow)
     int :: return_val;
     return_val = num ^ num_pow;
-end function return_val;
+end function return_val

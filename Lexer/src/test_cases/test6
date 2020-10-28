@@ -1,15 +1,18 @@
 ## Nested if/else if/else
-int :: a, b;
 
-if(a < b)
-    if(a == 0)
+void function main()
+    int :: a, b;
+
+    if(a < b)
+        if(a == 0)
+            b = 100;
+        end if;
+    elif (a > b)
+        if (b == 0)
+            a = 100;
+        end if;
+    else
+        a = 100;
         b = 100;
     end if;
-elif (a > b)
-    if (b == 0)
-        a = 100;
-    end if;
-else
-    a = 100;
-    b = 100;
-end if;
+end function
