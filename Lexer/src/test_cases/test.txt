@@ -1,0 +1,80 @@
+bool function myFunction(int s, real t, int d)
+	int::a;
+	int::b;
+	bool :: r;
+	for(a = 5; a <= 10; a = a + 1)
+		for(b = 5; b <= 10; b = b + 1) 
+			int::a;
+			int :: a;
+			int :: b;
+			real :: real_variable;
+
+			bool :: check, another_check;
+			bool :: equal, another_equal;
+			bool :: r;
+
+			static int :: static_array(5);
+			int :: array(-1);
+			bool :: bool_array(10);
+			int :: arr(10);
+			int :: another(5);
+			int :: another_array(5);
+			
+			another_array(4) = 3;
+			another_array(3) = false;
+			another_array(-1) = 6;
+			another_array(5) = 5;
+			another_array = (/1, 2, 3, 4, 5/);
+			another_array = (/1, 2, 3, 4/);
+			another_array = (/1, 2, 3, 4.0, false/);
+			
+			bool_array = arr;
+			bool_array = b;
+			arr = another;
+			another = another_array;
+
+			check = 4.0 < 5.0;
+			another_check = 4 < 5;
+
+			equal = 4.0 == 5.0;
+			another_equal = true == false;
+			
+			d = 5;
+			e = 5;
+			a = false;
+			b = 7.8;
+
+			b = a();
+			myFunction = 6;
+
+			b(4) = 7;
+			break;
+
+			a = 4.0 * a;
+
+			r = not b;
+			r = r and b;
+			r = a and r;
+			r = a and b;
+			r = r and r;
+
+			r = myFunction(a, b);
+			r = myFunction(a, real_variable, c);
+			r = myFunction(a, b, c);
+		end for	
+		return r;
+		return a;
+	end for
+
+	break;
+	continue;
+	return;
+end function otherFunction
+
+int function main()
+	int :: a;
+	int :: b;
+	int :: c;
+	c = a + b;
+end function
+
