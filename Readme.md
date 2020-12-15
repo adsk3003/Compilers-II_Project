@@ -3,7 +3,7 @@ antlr 4.7.2 jar inside /usr/local/lib
 java 1.6 or above
 
 ## Steps to run
-1. Run the bash script "run.sh" in the deliverables directory by running the following command on CLI
+1. Run the bash script "run.sh" in the Lexer directory by running the following command on CLI
 	sudo ./run.sh <test_case_file_name>
 	Eg : sudo ./run.sh test.txt
 
