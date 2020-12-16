@@ -19,4 +19,5 @@ The Readme file in the /src/test_cases directory contains information on what ea
 
 ## Note
 The test cases are inside directory Lexer_and_Parser/src/test_cases, and they have a Readme of their own
+
 This script was run on Ubuntu 18.04.4 LTS
