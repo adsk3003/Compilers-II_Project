@@ -9,4 +9,3 @@ cd ..
 cd ..
 cd ..
 make clean -s
-exec bash
