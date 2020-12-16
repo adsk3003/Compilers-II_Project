@@ -129,9 +129,8 @@ public class DefPhase extends MerzureBaseListener {
 
 		Symbol funExists = currentScope.exists(name);
 		if(funExists != null) {
-			Token tkn = ctx.functionStatement().getToken(DefPhase.OBJID, 0).getSymbol();
+			Token tkn = ctx.functionStatement().start;
 			MyCompiler.error(tkn, name + " is already defined");
-			return;
 		}
 
 		MethodSymbol function = new MethodSymbol(name, type, currentScope, parTypes);

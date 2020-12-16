@@ -20,6 +20,7 @@ public class RefPhase extends MerzureBaseListener {
 	private GlobalScope globals;
 	private Scope currentScope;
 	private static final int OBJID = MerzureParser.OBJECTID;
+	private boolean mainExists = false;
 
 	/*
 	 * GETTERS
@@ -173,6 +174,10 @@ public class RefPhase extends MerzureBaseListener {
 	@Override public void enterProgram(MerzureParser.ProgramContext ctx) { this.currentScope = globals; }
 	
 	@Override public void exitProgram(MerzureParser.ProgramContext ctx) {
+		if(this.mainExists == false){
+			String msg = "No main function";
+			MyCompiler.error(ctx.stop, msg);
+		}
 		if(debugging.status == true) {
 			System.out.println(globals);
 		}
@@ -180,6 +185,9 @@ public class RefPhase extends MerzureBaseListener {
 
 	@Override public void enterFunction(MerzureParser.FunctionContext ctx) {
 		this.currentScope = scopes.get(ctx);
+		if(this.currentScope.getScopeName().equals("main")){
+			this.mainExists = true;
+		}
 		if(debugging.status == true) {
 			System.out.println("Push " + this.currentScope);
 		}
