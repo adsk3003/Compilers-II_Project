@@ -1,0 +1,8 @@
+## This is a comment
+## Variable declared twice
+
+void function main()
+    int::a, b;
+    int::b,c;
+    return;
+end function

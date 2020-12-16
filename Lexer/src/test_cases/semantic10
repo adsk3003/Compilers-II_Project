@@ -1,12 +1,16 @@
-## For loops
+## Break and continue statements must be inside a loop
 
 void function main()
     int :: a, b;
     b = 100;
+    real :: c;
 
     for(a = 10; a > 1; a = a/2)
         b = b - 1;
         b = b*2;
+        break;
     end for;
+    break;
+    continue;
     return;
 end function

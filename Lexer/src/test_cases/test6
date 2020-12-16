@@ -15,4 +15,5 @@ void function main()
         a = 100;
         b = 100;
     end if;
+    return;
 end function

@@ -270,7 +270,7 @@ public class RefPhase extends MerzureBaseListener {
 			String msg = "return type of " + enclosingFunction.getName() + " is not VOID";
 			MyCompiler.error(ctx.getToken(MerzureParser.RETURN, 0).getSymbol(), msg);
 		}
-		else {
+		else if(ctx.expressionStatement().expression() != null){
 			Type exprType = RefPhase.fetchType(ctx.expressionStatement().expression(), this.types);
 			// System.out.println("exprType : " + exprType);
 			boolean check = enclosingFunction.getType().equals(exprType);

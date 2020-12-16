@@ -1,4 +1,4 @@
-## Arrays
+## Assigning values to an int like an array
 
 void function main()
     unsigned long int :: a;
@@ -9,6 +9,8 @@ void function main()
 
     arr_a(10) = 100;
     arr_a(20) = 200;
+
+    a = (/1, 2, 3, 4, 5/);
 
     arr_b = (/1, 2, 3, 4, 5/);
     return;

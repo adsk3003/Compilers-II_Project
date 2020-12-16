@@ -30,4 +30,5 @@ void function main()
             b = 100;
         end if;
     end for;
+    return;
 end function

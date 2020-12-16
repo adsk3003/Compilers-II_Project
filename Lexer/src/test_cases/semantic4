@@ -1,0 +1,25 @@
+## function call should have same type and same number of arguments
+
+## Functions
+void function main()
+    int :: a, b, ans, c;
+
+    a = 10;
+    b = 25;
+
+    c = power(a, b); 
+    c = power2(a, b, c);
+    return;
+end function
+
+int function power (int num, real num_pow)
+    int :: return_val;
+    return_val = num ^ num_pow;
+    return return_val;
+end function power
+
+int function power2 (int num, int num_pow)
+    int :: return_val;
+    return_val = num ^ num_pow;
+    return return_val;
+end function power2

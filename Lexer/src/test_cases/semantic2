@@ -1,0 +1,7 @@
+## we have handled forward referencing
+
+void function main()
+    b = 10;
+    int::a, b;
+    return;
+end function

@@ -1,13 +1,18 @@
-## If statement
+## the operand of logical not must have type bool
 
 void function main()
     int :: a, b;
     a = 2;
     b = 3;
+    real::c;
 
     if (a < b)
         a = a + b;
         b = a - b;
     end if;
+
+    bool :: b1, b2;
+    b2 = not b1;
+    b2 = not a;
     return;
 end function

@@ -1,0 +1,6 @@
+## same return type as mentioned in function defination
+
+void function main()
+    int::a, b;
+    return a;
+end function

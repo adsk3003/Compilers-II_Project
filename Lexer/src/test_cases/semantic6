@@ -1,4 +1,4 @@
-## If statement
+## The expression in if should be boolean or int
 
 void function main()
     int :: a, b;
@@ -6,6 +6,11 @@ void function main()
     b = 3;
 
     if (a < b)
+        a = a + b;
+        b = a - b;
+    end if;
+
+    if (a = a + b)
         a = a + b;
         b = a - b;
     end if;

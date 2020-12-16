@@ -7,7 +7,6 @@ void function main()
     c2 = 'c';
 
     real :: a_real;
-    a = 10.001;
 
     bool :: flag;
     flag = false;
@@ -17,4 +16,5 @@ void function main()
     int :: b, c;
     b = a*100;
     c = b - a;
+    return;
 end function

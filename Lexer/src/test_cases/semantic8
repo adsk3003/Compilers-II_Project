@@ -1,13 +1,15 @@
-## If statement
+## both operands of relational_op must be int
 
 void function main()
     int :: a, b;
     a = 2;
     b = 3;
+    real::c;
 
-    if (a < b)
+    if (a < c)
         a = a + b;
         b = a - b;
     end if;
+
     return;
 end function
